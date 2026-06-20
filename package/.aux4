@@ -1,0 +1,47 @@
+{
+  "scope": "agent",
+  "name": "skill-web",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "description": "Native agent skill: browser-automation methodology (navigate, extract, interact, verify, clean up) the agent applies with its own aux4 browser",
+  "tags": [
+    "ai",
+    "skill",
+    "web",
+    "agent",
+    "browser"
+  ],
+  "dependencies": [
+    "aux4/ai-skill"
+  ],
+  "profiles": [
+    {
+      "name": "ai:skill",
+      "commands": [
+        {
+          "name": "web",
+          "execute": [
+            "profile:ai:skill:web"
+          ],
+          "help": {
+            "text": "Methodology for driving a headless browser: navigate, extract, interact, verify, and clean up. Load before doing real web work with aux4 browser."
+          }
+        }
+      ]
+    },
+    {
+      "name": "ai:skill:web",
+      "commands": [
+        {
+          "name": "prompt",
+          "execute": [
+            "cat ${packageDir}/instructions/web.md"
+          ],
+          "help": {
+            "text": "Print the browser-automation methodology (daemon lifecycle, navigate+extract, interact, robustness) the agent applies with its own aux4 browser calls"
+          }
+        }
+      ]
+    }
+  ]
+}
