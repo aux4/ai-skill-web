@@ -31,22 +31,47 @@ permissions:
   contents: write
 
 jobs:
-  publish:
+  lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+
+      - uses: aux4/action@v1
+        with:
+          command: lint
+          strict: 'true'
+
+  test-linux:
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: aux4/action@v1
+        with:
+          command: test
+
+  test-darwin:
+    needs: [lint]
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: aux4/action@v1
+        with:
+          command: test
+
+  publish:
+    needs: [test-linux, test-darwin]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: aux4/action@v1
         with:
-          node-version: '20'
-
-      - name: Publish package
-        uses: aux4/publish-package-action@v1
-        with:
+          command: publish
           level: ${{ inputs.level || 'patch' }}
           aux4_token: ${{ secrets.AUX4_ACCESS_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
