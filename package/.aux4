@@ -36,7 +36,7 @@
         {
           "name": "prompt",
           "execute": [
-            "cat ${packageDir}/instructions/web.md"
+            "cat ${packageDir}/instructions/prompt.md"
           ],
           "help": {
             "text": "Print the browser-automation methodology (daemon lifecycle, navigate+extract, interact, robustness) the agent applies with its own aux4 browser calls"
