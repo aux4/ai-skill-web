@@ -1,7 +1,7 @@
 {
   "scope": "agent",
   "name": "skill-web",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "Apache-2.0",
   "description": "Native agent skill: browser-automation methodology (navigate, extract, interact, verify, clean up) the agent applies with its own aux4 browser",
   "tags": [
