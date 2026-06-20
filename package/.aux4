@@ -12,7 +12,8 @@
     "browser"
   ],
   "dependencies": [
-    "aux4/ai-skill"
+    "aux4/ai-skill",
+    "aux4/browser"
   ],
   "profiles": [
     {
