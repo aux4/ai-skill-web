@@ -2,7 +2,7 @@
 
 A native aux4 agent skill that gives an agent a **methodology** for driving a headless browser with `aux4 browser` — how to navigate, extract content, interact with dynamic pages, verify state, and clean up so web work is cheap, robust, and leaves no dangling daemon.
 
-It is an **instruction skill**: prompt-only, no domain commands, no `run`, and no LLM dependency. It does not wrap `aux4 browser`. The agent already has `aux4 browser` (`start`, `open`, `visit`, `read`, `content`, `get-items`, `click`, `click-text`, `type`, `expect`, `eval`, `screenshot`, `close`, `stop`, ...) and the LLM to reason — this skill supplies the discipline the agent applies with its own browser calls. It depends on `aux4/ai-skill` only (for the shared `ai:skill` profile and the skill contract).
+It is an **instruction skill**: prompt-only, no domain commands, no `run`, and no LLM dependency. It does not wrap `aux4 browser`. The agent already has `aux4 browser` (`start`, `open`, `visit`, `read`, `content`, `get-items`, `click`, `click-text`, `fill`, `type`, `select`, `check`, `expect`, `eval`, `screenshot`, `close`, `stop`, ...) and the LLM to reason — this skill supplies the discipline the agent applies with its own browser calls. It depends on `aux4/ai-skill` only (for the shared `ai:skill` profile and the skill contract).
 
 ## Installation
 

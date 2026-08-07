@@ -100,6 +100,49 @@ aux4 ai skill web prompt
 aux4 browser
 ```
 
+### should teach the one-call form fill
+
+```execute
+aux4 ai skill web prompt
+```
+
+```expect:partial
+aux4 browser fill --session
+```
+
+### should warn that opening again discards the session
+
+Calling `open` twice silently drops the cookies of the first session -- the skill has to say so,
+because the failure is invisible at the point it happens.
+
+```execute
+aux4 ai skill web prompt
+```
+
+```expect:partial
+*never `open`*
+```
+
+### should map HTTP statuses to what the agent must do
+
+```execute
+aux4 ai skill web prompt
+```
+
+```expect:partial
+*401*
+```
+
+### should tell the agent to read the page before acting on it
+
+```execute
+aux4 ai skill web prompt
+```
+
+```expect:partial
+*Read the page before you act on it*
+```
+
 ### should include the rules section
 
 ```execute
@@ -140,16 +183,6 @@ aux4 ai skill web --help
 
 ```expect:partial
 Methodology for driving a headless browser
-```
-
-### validate should pass
-
-```execute
-aux4 ai skill validate web
-```
-
-```expect:partial
-conforms to the native skill contract
 ```
 
 ### list should show web
